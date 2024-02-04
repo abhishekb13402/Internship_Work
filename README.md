@@ -134,14 +134,11 @@ Utilizes the provided username to personalize the interface.
 Opens upon successful authentication of a regular user.
 
 Key Features:
-Database Interaction:
 
-Utilizes ADO.NET to interact with a SQL Server database for user authentication.
 Forms Interaction:
-
 Implements communication between forms using constructor parameters, passing user details from the login form to the respective home forms.
-User Authentication:
 
+User Authentication:
 Validates user credentials against the database and distinguishes between admin and regular user logins.
 Error Handling:
 
