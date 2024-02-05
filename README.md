@@ -105,3 +105,42 @@ Internal Class (Class1):
 
 Placeholder class, possibly auto-generated and not used in the current context.
 The code structure demonstrates the use of OOP principles such as encapsulation, abstraction, and inheritance. It also employs the Factory Method pattern to create instances of car objects based on user input, promoting flexibility and extensibility in the application. Additionally, interfaces are used to define contracts for different payment methods, allowing for easy integration of new payment types in the future.
+
+
+
+# Database_Demo
+
+This mini project is a simple authentication system implemented in C# using Windows Forms. It consists of three forms: Form1 for user login, AdminHome for the admin's home interface, and UserHome for the user's home interface.
+
+Form1 (Login Form)
+Functionality:
+Takes user credentials (username and password) as input.
+Connects to a SQL Server database to validate the credentials.
+If valid, opens a new form based on the user type (admin or user).
+If invalid, displays an error message.
+
+AdminHome Form
+Functionality:
+Displays a welcome message for the admin.
+Inherits from the generic Form class.
+Utilizes the provided admin username to personalize the interface.
+Opens upon successful authentication of an admin user.
+
+UserHome Form
+Functionality:
+Displays a welcome message for a regular user.
+Inherits from the generic Form class.
+Utilizes the provided username to personalize the interface.
+Opens upon successful authentication of a regular user.
+
+Key Features:
+
+Forms Interaction:
+Implements communication between forms using constructor parameters, passing user details from the login form to the respective home forms.
+
+User Authentication:
+Validates user credentials against the database and distinguishes between admin and regular user logins.
+Error Handling:
+
+Provides informative error messages for unsuccessful login attempts or database connection issues.
+This mini project serves as a foundational example of user authentication and interface customization based on user roles within a Windows Forms application. 
