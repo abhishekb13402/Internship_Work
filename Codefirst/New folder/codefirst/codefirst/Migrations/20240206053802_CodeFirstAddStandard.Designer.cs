@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using codefirst.Models;
 
@@ -10,9 +11,11 @@ using codefirst.Models;
 namespace codefirst.Migrations
 {
     [DbContext(typeof(StudentDBContext))]
-    partial class StudentDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240206053802_CodeFirstAddStandard")]
+    partial class CodeFirstAddStandard
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +46,7 @@ namespace codefirst.Migrations
                         .HasColumnType("varchar(10)")
                         .HasColumnName("Student_Name");
 
-                    b.Property<string>("Standard")
+                    b.Property<string>("Standaard")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

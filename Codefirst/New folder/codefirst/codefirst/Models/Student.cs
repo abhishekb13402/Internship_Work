@@ -16,5 +16,6 @@ namespace codefirst.Models
         public string Gender { get; set; }
         [Column("Student_Age")]
         public int Age { get; set; }
+        public string Standard { get; set; }
     }
 }
