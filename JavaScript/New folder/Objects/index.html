@@ -23,18 +23,83 @@
 	// alert(user.name);
 
 	// Comparison by reference
-	let a = {};
-	let b = a;
+	// let a = {};
+	// let b = a;
 
-	let c = {};
-	let d = {};
+	// let c = {};
+	// let d = {};
 	
 
-	alert(a==b);
-	alert(a===b);
+	// alert(a==b);
+	// alert(a===b);
 
-	alert(c==d);
-	alert(c===d);
+	// alert(c==d);
+	// alert(c===d);
+// ---------------------------------------------------
+	// Tow function one obj
+
+	// let obj={};
+	// function A(){return obj;}	
+	// function B(){return obj;}	
+
+	// alert(new A() == new B());//true
+
+// function Calculator(){
+// 	this.read=function(){
+// 		this.a = +prompt('a?',0);
+// 		this.b = +prompt('b?',0);
+
+// 	};
+// 	this.sum=function(){
+// 		return this.a + this.b;
+// 	};
+// 	this.sub=function(){
+// 		return this.a - this.b;
+// 	};
+// 	this.mul=function(){
+// 		return this.a * this.b;
+// 	};
+// 	this.div=function(){
+// 		return this.a / this.b;
+// 	};
+// }
+// let calculator = new Calculator();
+// calculator.read();
+
+// alert("Sum = "+calculator.sum());
+// alert("Sub = "+calculator.sub());
+// alert("Mul = "+calculator.mul());
+// alert("Div = "+calculator.div());
+
+
+// --------------------------------------------------------
+	// optional chaining '?.'
+
+// const user={
+// 	name:"Abhi",
+// 	age:21,
+// 	address:{
+// 		street:"Main st",
+// 		city:"Vadodara",
+// 	},
+// };
+
+// alert(user?.address?.city);
+// alert(user?.addressss?.city);
+
+// --------------------------------------------------
+
+	// symbol
+// let symbol1 =Symbol('symbol2');
+// let symbol2 =Symbol('symbol2');
+// console.log(symbol1===symbol2);//false
+// console.log(symbol1===symbol2);//false
+// alert(symbol1.toString());//Symbol(symbol2)
+// alert(symbol1.description);//symbol2
+
+// --------------------------------------------------------
+
+
 
 </script>
 
