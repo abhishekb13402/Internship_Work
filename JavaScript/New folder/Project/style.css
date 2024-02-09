@@ -1,0 +1,16 @@
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+table,th,td{
+border: 1px solid;
+margin-top: 10px;
+width: 80%;
+height: 100%;
+}

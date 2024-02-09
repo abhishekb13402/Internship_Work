@@ -30,7 +30,28 @@
 // varScoping();
 // letScoping();
 
-let sum = function(a, b) {
-  return a + b;
-};
-console.log(sum);
+// object section
+
+// let user = {
+//   name:"Abhishek",
+//   age:21
+// };
+
+// // alert(user.name);
+// // alert(user.age);
+
+// property value shorthand
+
+// function makeuser(name,age){
+//   return{
+//     name:name,
+//     age:age
+
+//   };
+// }
+
+// let user=makeuser("abhi",21);
+// alert("username = "+ user.name+ ", userage = "+user.age);
+
+
+
