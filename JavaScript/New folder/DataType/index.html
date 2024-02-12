@@ -105,26 +105,258 @@ let fruits = ["Apple", "Orange", "Plum"];
 
 // Multidimensional arrays
 
-let matrix = [
-		[1,2,3],
-		[4,5,6],
-		[7,8,9]
-	];
+// let matrix = [
+// 		[1,2,3],
+// 		[4,5,6],
+// 		[7,8,9]
+// 	];
 
-alert(matrix[1][1]);
+// alert(matrix[1][1]);
+
+// ---------------------------------------------------------
+
+// // Array methods
+
+// // slice, splice
+
+// var users=["Ab","dd","sad","fre"];
+// // console.log(users.slice(1));  //(3)['dd', 'sad', 'fre']
+
+// // (range,delete,..add)
+// users.splice(1,2,"hhiiii");
+// console.log(users);   //(3)['Ab', 'hhiiii', 'fre']
+
+// //concat
+// let arr = [1, 2];
+
+// let arrayLike = {
+//   0: "something",
+//   length: 1
+// };
+
+// alert( arr.concat(arrayLike) ); // 1,2,[object Object]
 
 
+// let users = [
+//   {id: 1, name: "A"},
+//   {id: 2, name: "B"},
+//   {id: 3, name: "C"}
+// ];
+
+// let user = users.find(item => item.id == 1);
+
+// alert(user.name); // A
+
+// // It calls the function for each element of the array and returns the array of results.
 
 
+// let lengths = ["om", "abcasa", "abhishek"].map(item => item.length);
+// alert(lengths); // 2,6,8
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.reverse();
+
+// alert( arr ); // 5,4,3,2,1
+
+// let names= 'abc,dsdd,ssss,ffee';
+
+// let arr=names.split(',');
+// for(let name of arr){
+// 	alert(`A message to ${name}. `);
+// }
+
+// let arr=['aaaa','ssdsdd','sdeeee'];
+// let str = arr.join(';');
+// alert(str);
+
+// ------------------------------------------------
+// Iterables : that allows us to make any object useable in a for..of loop.
 
 
+// let range ={
+// 	from:1,
+// 	to:5
+// };
+
+// range[Symbol.iterator]=function () 
+// {
+// 	return{
+// 		current:this.from,
+// 		last:this.to,
+// 		next(){
+// 			if (this.current<=this.last) {
+// 				return{done: false,value: this.current++};
+// 			}else{
+// 				return {done:true};
+// 			}
+// 		}
+// 	};
+// };
+
+// for(let num of range){
+// 	alert(num);//1 ,2,3,4,5
+// }
+
+// -----------------------------------------------------------
+//map and set
+// map=collection of keyed data items, just like an Object
 
 
+// let recipeMap = new Map([
+//   ['cucumber', 500],
+//   ['tomatoes', 350],
+//   ['onion',    50]
+// ]);
+
+// // iterate over keys (vegetables)
+// for (let vegetable of recipeMap.keys()) {
+//   alert(vegetable); // cucumber, tomatoes, onion
+// }
+
+// // iterate over values (amounts)
+// for (let amount of recipeMap.values()) {
+//   alert(amount); // 500, 350, 50
+// }
+
+// // iterate over [key, value] entries
+// for (let entry of recipeMap) { // the same as of recipeMap.entries()
+//   alert(entry); // cucumber,500 (and so on)
+// }
 
 
+// set=use for store unique values 
 
+// const myArray=[1,2,3,4,2,24,2,1,1];
+// const mySet=new Set(myArray);
 
+// mySet.add(66);
+// mySet.delete(24);//Set(5) {1, 2, 3, 4, 66}
 
+// console.log(myArray);
+// console.log(mySet);
+// console.log(mySet.has(66));//true
+// console.log(mySet.size);
+
+// (9)[1, 2, 3, 4, 2, 24, 2, 1, 1]
+// Set(5){1, 2, 3, 4, 24}
+
+// --------------------------------------------------------------
+
+//Map, set, weakset, weakmap
+
+// set= contains uniqe values
+
+// let myArray=[1,2,3,4,4,3];
+// let obj=new Set(myArray);
+// obj.add(5);
+
+// var obj1={name:"Abhi"};
+// obj.add(obj1);
+
+// console.log(obj);
+// console.log(obj.size);
+// console.log(obj.has(10));
+
+//map-> stores key value pair
+//duplicate not allowed
+
+// let myMap=new Map([["a1","Abhi"],["a2","Om"]]);
+// myMap.set("a2","aaa");
+// myMap.delete("a2");
+// myMap.set("a3","ccc");
+// myMap.set("a4","ddd");
+
+// console.log(myMap);
+// console.log(myMap.get("a3"));
+// //for print / iterate
+
+// for(let [key,value] of myMap){
+// 	console.log(`keys ${key}, value ${value}`);
+// }
+
+//weakSet
+//only store object cannot be iterated
+
+// let ws=new WeakSet();
+// var obj1={"name":"aaaaa"};
+// var obj2={};
+
+// ws.add(obj1);
+// ws.add(obj2);
+// console.log(ws.has(obj1));//true
+
+//WeakMap
+// let wm=new WeakMap();
+// var obj3={};
+// var obj4={};
+
+// wm.set(obj3,"Private");
+// wm.set(obj4,"Private data");
+// console.log(wm.has(obj4));//true
+
+// -------------------------------------------------------------
+
+// Object.keys, values, entries
+
+// let person={
+// 	name:'abhi',
+// 	city:'vadodara',
+// 	age:'21',
+// 	post:'intern',
+// 	tech:'.net'
+// };
+
+// console.log(Object.keys(person));
+// console.log(Object.values(person));
+// console.log(Object.entries(person));
+
+// ----------------------------------------------------------
+//date and time
+
+// let now = new Date();
+// alert( now ); // shows current date/time
+// alert(now.getHours());
+
+// let d1=new Date(2002,4,13,4,45,50);
+// alert(d1);
+
+//destructuring
+
+// const name = "bhatt abhishek sanjay";
+// const namearr=name.split('');
+// console.log(namearr);
+// // let firstname=namearr[0];
+// // let secondname=namearr[1];
+// // console.log(firstname);
+// // console.log(secondname);
+// //destructuring
+// let [firstname,lastname]=namearr;
+// console.log(lastname);
+// console.log(firstname);
+
+// -------------------------------------------------------
+// use JSON for data exchange when the client uses JavaScript and the server is written on Ruby/PHP/Java/Whatever.
+
+// JavaScript provides methods:
+
+// JSON.stringify to convert objects into JSON.
+// JSON.parse to convert JSON back into an object.
+
+// let student = {
+// 	name : 'abhi',
+// 	age: 21,
+// 	course: ['dotnet','reactjs','js']
+// };
+// let json =JSON.stringify(student);
+// alert(typeof json);
+// alert(json);
+
+let userData = '{ "name": "abhi", "age": 21, "isAdmin": true, "friends": [0,1,2,3] }';
+
+let user = JSON.parse(userData);
+
+alert( user.name );
+alert( user.friends[3]);
 
 
 </script>
