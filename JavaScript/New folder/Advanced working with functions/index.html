@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Advanced working with functions</title>
+</head>
+<body>
+<script type="text/javascript">
+	// Advanced working with functions
+	//normal
+	// function pow(x, n) {
+	// 	let result = 1;
+
+	// 	for (let i = 0; i < n; i++) {
+	// 		result *= x;
+	// 	}
+
+	//   return result;
+	// }
+
+	// alert( pow(2, 3) ); // 8
+
+	// Recursion
+	// function pow(x,n){
+	// 	if(n==1){
+	// 		return x;
+	// 	}else{
+	// 		return x*pow(x,n-1);
+	// 	}
+	// }
+	// alert(pow(2,3))//8
+
+	// normal
+	// function sumto(n){
+	// 	let sum=0;
+	// 	for(let i = 1; i<= n; i++){
+	// 		sum+=i;
+	// 	}
+	// 	return sum;
+	// }
+	// alert(sumto(10));
+
+	// Recursion
+	// function sumto(n){
+	// 	if (n==1) {
+	// 		return 1;
+	// 	}else{
+	// 		return n+sumto(n-1);
+	// 	}
+	// }
+	// alert(sumto(10));
+
+// 	function factorial(n) 
+// 	{
+//   		return (n != 1) ? n * factorial(n - 1) : 1;
+// 	}
+
+// alert( factorial(5) ); // 120
+
+// function fib(n) {
+//   return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+// }
+
+// alert( fib(3) ); // 2
+
+// --------------------------------------------------------------
+	// Rest parameters and spread syntax
+
+// 	function sum(a, b) 
+// 	{
+// 		return a + b;
+// 	}
+
+// alert( sum(1, 2, 3, 4, 5) );
+
+// function sumall(...args){
+// 	let sum =0;
+// 	for(let arg of args){
+// 		sum+=arg;
+// 	}
+// 	return sum;
+// }
+
+// alert(sumall(1));//1
+// alert(sumall(1,2));//3
+// alert(sumall(1,2,3));//6
+
+// 	let arr = [3, 5, 1];
+
+// 	alert( Math.max(...arr) );//5
+
+// let arr1 = [1, -2, 3, 4];
+// let arr2 = [8, 3, -8, 1];
+
+// alert( Math.max(...arr1, ...arr2) ); // 8
+
+
+// let name = "John";
+
+// function sayHi() {
+//   alert("Hi, " + name);
+// }
+
+// name = "Pete";
+
+// sayHi(); // Hi, Pete
+
+function makeCounter() {
+  let count = 0;
+
+  return function() {
+    return count++;
+  };
+}
+
+let counter = makeCounter();
+let counter2 = makeCounter();
+
+alert( counter() ); // 0
+alert( counter() ); // 1
+
+alert( counter2() ); // 0
+alert( counter2() ); // 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

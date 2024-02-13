@@ -31,19 +31,19 @@
         	if ((mainCheckbox.checked) && (daysCheckbox.checked || ageCheckbox.checked || fieldCheckbox.checked)) 
         	{
 	         
-
+        		//dropdown values
 	            var daysSelect = document.getElementById('days');
 	            var ageSelect = document.getElementById('age');
 	            var fieldSelect = document.getElementById('field');
 
 	            
 	            // Store selected values in localStorage
-	            if (mainCheckbox.checked) 
-	            {
+	            // if (mainCheckbox.checked) 
+	            // {
 	                localStorage.setItem('selectedDays', daysSelect.value);
 	                localStorage.setItem('selectedAge', ageSelect.value);
 	                localStorage.setItem('selectedField', fieldSelect.value);
-	        	}
+	        	// }
 	            window.location.href = "DropdownExercisepage2.html";
         	}
         	else
@@ -70,8 +70,11 @@
                 <input type="checkbox" id="dayscheckbox" name="dayscheckbox" onclick="Visibilitydropdown('dayscheckbox', 'days')">
                     
                 <label for="days">Days</label>
-                <select name="days" id="days" disabled>
-                    <option value="Day">Day</option>
+                 <select name="days" id="days" disabled>
+                    
+                </select>
+               <!--  <select name="days" id="days" disabled>
+                    <option value=""></option>
                     <option value="Sunday">Sunday</option>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
@@ -79,7 +82,7 @@
                     <option value="Thursday">Thursday</option>
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
-                </select>
+                </select> -->
             </div>
             <div>
                 <label for="agecheckbox">AgecheckBox</label>
@@ -87,7 +90,10 @@
                     
                 <label for="age">Age</label>
                 <select name="age" id="age" disabled>
-                    <option value="Age">Age</option>
+
+
+
+                    <option value=""></option>
                     <option value="18">18</option>
                     <option value="19">19</option>
                     <option value="20">20</option>
@@ -103,7 +109,7 @@
                     
                 <label for="field">Field</label>
                 <select name="field" id="field" disabled>
-                    <option value="Field">Field</option>
+                    <option value=""></option>
                     <option value="dotnet">DotNet</option>
                     <option value="reactjs">ReactJs</option>
                     <option value="java">Java</option>
