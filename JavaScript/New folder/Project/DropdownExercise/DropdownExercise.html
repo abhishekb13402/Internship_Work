@@ -5,76 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dropdown Exercise</title>
     <script type="text/javascript">
-    	 function Visibilitycontent() {
-            var mainCheckbox = document.getElementById('maincheckbox');
-            var content = document.getElementById('content');
+    	
+        function Visibilitycontent(maincheckbox,dayscheckbox,agecheckbox,fieldcheckbox) 
+        {
+            try
+            {
+                var mainCheckbox = document.getElementById(maincheckbox);
+                var dayscheckbox = document.getElementById(dayscheckbox);
+                var agecheckbox = document.getElementById(agecheckbox);
+                var fieldcheckbox = document.getElementById(fieldcheckbox);
 
-            // Show/hide content for main checkbox
-            content.style.display = mainCheckbox.checked ? 'block' : 'none';
+                if (mainCheckbox.checked) {
+                    dayscheckbox.disabled=false;
+                    agecheckbox.disabled=false;
+                    fieldcheckbox.disabled=false;
+                }else{
+                    dayscheckbox.disabled=true;
+                    agecheckbox.disabled=true;
+                    fieldcheckbox.disabled=true;                
+                }
+            }catch(err)
+            {
+                document.getElementById("errtxt").innerHTML=err.message;
+            }
         }
 
         function Visibilitydropdown(checkboxId, dropdownId){
-        	var checkbox = document.getElementById(checkboxId);
-            var dropdown = document.getElementById(dropdownId);
+            try{
+            	var checkbox = document.getElementById(checkboxId);
+                var dropdown = document.getElementById(dropdownId);
 
-            // Enable/disable dropdown based on the state of the checkbox
-            dropdown.disabled = !checkbox.checked;
+                // Enable/disable dropdown based on the state of the checkbox
+                dropdown.disabled = !checkbox.checked;
+            }catch(err)
+            {
+                document.getElementById("errtxt").innerHTML=err.message;
+            }
         }
 
         function submitform()
         {
-            var mainCheckbox = document.getElementById('maincheckbox');
-            var daysCheckbox = document.getElementById('dayscheckbox');
-	        var ageCheckbox = document.getElementById('agecheckbox');
-	        var fieldCheckbox = document.getElementById('fieldcheckbox');
+            try
+            {
+                var mainCheckbox = document.getElementById('maincheckbox');
+                var daysCheckbox = document.getElementById('dayscheckbox');
+    	        var ageCheckbox = document.getElementById('agecheckbox');
+    	        var fieldCheckbox = document.getElementById('fieldcheckbox');
 
-        	if ((mainCheckbox.checked) && (daysCheckbox.checked || ageCheckbox.checked || fieldCheckbox.checked)) 
-        	{
-	         
-        		//dropdown values
-	            var daysSelect = document.getElementById('days');
-	            var ageSelect = document.getElementById('age');
-	            var fieldSelect = document.getElementById('field');
+            	if ((mainCheckbox.checked) && (daysCheckbox.checked || ageCheckbox.checked || fieldCheckbox.checked)) 
+            	{
+    	         
+            		//dropdown values
+    	            var daysSelect = document.getElementById('days');
+    	            var ageSelect = document.getElementById('age');
+    	            var fieldSelect = document.getElementById('field');
 
-	            
-	            // Store selected values in localStorage
-	            // if (mainCheckbox.checked) 
-	            // {
-	                localStorage.setItem('selectedDays', daysSelect.value);
-	                localStorage.setItem('selectedAge', ageSelect.value);
-	                localStorage.setItem('selectedField', fieldSelect.value);
-	        	// }
-	            window.location.href = "DropdownExercisepage2.html";
-        	}
-        	else
-        	{ alert("Click Checkbox First"); }
+    	                localStorage.setItem('selectedDays', daysSelect.value);
+    	                localStorage.setItem('selectedAge', ageSelect.value);
+    	                localStorage.setItem('selectedField', fieldSelect.value);
+    	        
+    	            window.location.href = "DropdownExercisepage2.html";
+            	}
+            	else
+            	{ 
+                    debugger
+                    // alert("Click Checkbox First");
+                    document.getElementById("errtxt").innerHTML="Click Checkbox first";
+                }
+            }
+            catch(err)
+            {
+                document.getElementById("errtxt").innerHTML="Click First checkbox "+err.message;
+            }
         }
     </script>
 
-    <style type="text/css">
-        #content {
-            display: none;
-        }
-    </style>
-
+<style type="text/css">
+    #errtxt{
+        color: red;
+    }
+</style>
 </head>
 <body>
     <form name="dropexform" method="post" action="DropdownExercisepage2.html">
         
         <label for="maincheckbox">Main checkBox</label>
-        <input type="checkbox" id="maincheckbox" name="maincheckbox" onclick="Visibilitycontent()"><br><br>
+        <input type="checkbox" id="maincheckbox" name="maincheckbox" onclick="Visibilitycontent('maincheckbox','dayscheckbox','agecheckbox','fieldcheckbox')"><br><br><br>
+        <p id="errtxt"></p><br>
 
-        <div id="content">
             <div>
                 <label for="dayscheckbox">DayscheckBox</label>
-                <input type="checkbox" id="dayscheckbox" name="dayscheckbox" onclick="Visibilitydropdown('dayscheckbox', 'days')">
+                <input disabled type="checkbox" id="dayscheckbox" name="dayscheckbox" onclick="Visibilitydropdown('dayscheckbox', 'days')">
                     
                 <label for="days">Days</label>
-                 <select name="days" id="days" disabled>
+                <!--  <select name="days" id="days" disabled>
                     
-                </select>
-               <!--  <select name="days" id="days" disabled>
-                    <option value=""></option>
+                </select> -->
+               <select name="days" id="days" disabled>
+                    <option value=""disabled selected hidden>Select</option>
                     <option value="Sunday">Sunday</option>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
@@ -82,18 +110,15 @@
                     <option value="Thursday">Thursday</option>
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
-                </select> -->
+                </select>
             </div>
             <div>
                 <label for="agecheckbox">AgecheckBox</label>
-                <input type="checkbox" id="agecheckbox" name="agecheckbox" onclick="Visibilitydropdown('agecheckbox', 'age')">
+                <input disabled type="checkbox"  id="agecheckbox" name="agecheckbox" onclick="Visibilitydropdown('agecheckbox', 'age')">
                     
                 <label for="age">Age</label>
-                <select name="age" id="age" disabled>
-
-
-
-                    <option value=""></option>
+                <select name="" id="age" disabled>
+                    <option value=""disabled selected hidden>Select</option>
                     <option value="18">18</option>
                     <option value="19">19</option>
                     <option value="20">20</option>
@@ -105,18 +130,17 @@
             </div>
             <div>
                 <label for="fieldcheckbox">FieldcheckBox</label>
-                <input type="checkbox" id="fieldcheckbox" name="fieldcheckbox"onclick="Visibilitydropdown('fieldcheckbox', 'field')">
+                <input disabled type="checkbox"  id="fieldcheckbox" name="fieldcheckbox"onclick="Visibilitydropdown('fieldcheckbox', 'field')">
                     
                 <label for="field">Field</label>
-                <select name="field" id="field" disabled>
-                    <option value=""></option>
+                <select name="" id="field" disabled>
+                    <option value=""disabled selected hidden>Select</option>
                     <option value="dotnet">DotNet</option>
                     <option value="reactjs">ReactJs</option>
                     <option value="java">Java</option>
                     <option value="python">python</option>
                 </select>
             </div>
-        </div>
 
         <br>
         <input type="button" value="Submit" onclick="submitform()">

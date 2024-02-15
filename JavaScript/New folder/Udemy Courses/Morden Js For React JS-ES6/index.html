@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+//1st intro 14-02-2024
+// 2nd lecture datatype
+
+	// let name="Abhishek";
+	// let isOld=false;
+	// let num =10;
+	// let blogobj = {
+	// 	title:'Blog title 1',
+	// 	description : 'description'
+	// }
+	// const num1=20;
+	// // num1=10;
+	// console.log(num1);
+	// console.log(isOld);
+	// console.log(num);
+	// console.log(blogobj);
+// --------------------------------------------------------
+
+// 3rd lecture Template String `` back tick
+
+// const fname = 'Abhishek';
+// const lname = 'Bhatt';
+
+// const mGreetings = `Hello ${getfullname(fname,lname)}`;
+// console.log(mGreetings);
+
+// function getfullname(fname,lname){
+// 	return `${fname} ${lname}`;
+// }
+
+// --------------------------------------------------------
+
+// 4th lecture Arraw Function
+	// for code reduction
+
+// function greetings(name){
+// 	return('welcome '+name);
+// }
+// const mgreetings=(name,age)=>{
+// 	return(`welcome ${name}, ${age} `);
+// }
+// console.log(greetings('Abhishek'));
+// console.log(mgreetings('Abhishek Bhatt',21));
+
+// --------------------------------------------------------
+
+// 5th lecture rest operator
+
+// const msum=(...args)=>{
+// 	let sum =0;
+// 	for(let i=0; i<args.length; i++){
+// 		sum+=args[i];
+// 	}
+// 	console.log(sum);
+// }
+
+// msum(1,2,3,4);//10
+
+// --------------------------------------------------------
+
+// 6th lecture spread operator
+
+// let marr1=[1,2,3,4,5];
+// // let marr2=marr1;
+// let marr2=[...marr1];
+
+// marr1.push(6);
+
+// console.log(marr1);
+
+// console.log(marr2);
+
+// let marr1=[1,2,3,4,5];
+// let marr2=[6,7,8];
+
+// let marr3=[...marr1,...marr2,9,10];
+
+// console.log(marr3);
+
+// in object case
+// let mobj1={
+// 	name:'Abhi',
+// 	lname:'Bhatt'
+// }
+
+// let mobj2={
+// 	age:21
+// }
+
+// let mobj3={...mobj1,...mobj2};
+// console.log(mobj3);
+
+// --------------------------------------------------------
+
+// 7th lecture destructureing
+
+// const name = "Bhatt Abhishek Sanjay";
+// const namearr = name.split(' ');
+
+// console.log(namearr);
+// // let fname=namearr[0];
+// // let lname=namearr[1]; insted of this
+
+// let[fname,,fathername]=namearr;
+
+// console.log(fname);//Bhatt
+// // console.log(lname);
+// console.log(fathername);//Sanjay
+
+// in object case
+
+// let fname='Abhishek';
+// let lname='bhatt';
+// let age=21;
+
+// const personobj={
+// 	first:fname,
+// 	last:lname,
+// 	age:age
+// }
+// console.log(personobj);
+
+// --------------------------------------------------------
+
+//8th lecture array function : map()
+
+// operation perform in individual arr item
+
+// const marr=[1,2,3,4,5];
+// let newarr=marr.map((item)=>{
+// 	return item*2;
+// });
+
+// console.log(marr);
+// console.log(newarr);
+
+// in case of object
+
+// const marr=[
+// 		{
+// 			name:'abhi',
+// 			experience:20,
+// 			dept:'.net'
+// 		},
+// 		{
+// 			name:'mayur',
+// 			experience:12,
+// 			dept:'.net'
+// 		},
+// 		{
+// 			name:'abc',
+// 			experience:25,
+// 			dept:'.java'
+// 		},
+
+// 	];
+
+// let newarr=marr.map((data)=>{
+// 	console.log(data);
+// 	return {
+// 		name:data.name,
+// 		dept:data.dept
+// 	};
+// });
+
+// console.log(marr);
+// console.log(newarr);
+
+// --------------------------------------------------------
+
+// 15-02-2024
+
+// --------------------------------------------------------
+
+//9th lecture arrow function : reduce()
+
+// const numArr=[1,2,3,4,5];
+// const result=numArr.reduce((acc,item)=>{
+// 	// console.log(item);
+// 	// console.log(acc);
+// 	return acc+item;//
+// },0)
+// console.log(result);//15
+
+// const elements = [10, 20, 30, 40];
+// const sum = elements.reduce((currSum, ele) => currSum + ele);
+// console.log(sum);
+//Output - 100 
+// --------------------------------------------------------
+
+//10th lecture arrow function : filter()
+
+// const numarr=[1,2,3,4,5,6,7];
+// const resultarr=numarr.filter(item=>{
+// 	return (item % 2 != 0);
+// })
+// console.log("Result arr = ",resultarr);//[1, 3, 5, 7]
+
+// const resultarr=marr.filter(item=>{
+// 	console.log(item.experience);
+// 	return (item.experience >= 20);
+// })
+// console.log("Result arr = ",resultarr);
+
+// 0
+// : 
+// {name: 'abhi', experience: 20, dept: '.net'}
+// 1
+// : 
+// {name: 'abc', experience: 25, dept: '.java'}
+// length
+// : 
+// 2
+
+
+// --------------------------------------------------------
+
+//11th lecture  arrow function : find() and findIndex()
+
+// const numarr=[-1,-2,-3,-4,1,2,3,4];
+// const result = numarr.find(item=>{
+// 	return (item % 2 === 0 && item >= 0)
+// })
+
+// console.log(result);
+// const result1 = numarr.findIndex(item=>{
+// 	return (item % 2 === 0 && item >= 0)
+// })
+
+// console.log(result1);
+// --------------------------------------------------------
+
+//12th lecture intro to classes
+// class Person{
+// 	constructor(name,birtyear){
+// 		this.name=name;
+// 		this.birthyear=birtyear;
+// 	}
+// 	//anonymous arraw function
+// 	getDetails=()=>{
+// 		return `Name: ${this.name} and Age: ${2024-this.birthyear}`
+// 	}
+// }
+
+// var abhi = new Person('Abhi',2002);
+// console.log(abhi.getDetails());
+// --------------------------------------------------------
+
+//13th lecture inheritance in ES6
+
+// class Person{
+// 	constructor(name,birtyear){
+// 		this.name=name;
+// 		this.birthyear=birtyear;
+// 	}
+// 	//anonymous arraw function
+// 	getDetails=()=>{
+// 		return `Name: ${this.name} and Age: ${2024-this.birthyear}`
+// 	}
+// }
+
+// class Pilot extends Person{
+// 	constructor(name,birthyear,exp,type,license){
+// 		super(name,birthyear);
+// 		this.experience=exp;
+// 		this.type=type;
+// 		this.license=license;
+// 	}
+// 	getData=()=>{
+// 		console.log(`${this.getDetails()} and Experience ${this.experience} and Type: ${this.type}`);
+// 	}
+// }
+
+// const abhi = new Pilot('Abhishek',2002,1,'dotnet','1234');
+// console.log(abhi);
+// abhi.getData();
+
+//op:Pilot {name: 'Abhi', birthyear: 2002, experience: 1, getDetails: ƒ, getData: ƒ, …}
+
+// --------------------------------------------------------
+
+//lecture Callbacks and Promises, working with promises, chaining promises
+
+//Callbacks
+
+// const funA = () => {
+// 	setTimeout(function(){
+// 		console.log("Welcome funA");
+// 	},3000);
+// }
+
+// const funB = () => {
+// 	console.log("Welcome funB");
+// }
+
+// funA();
+// funB();
+
+// insted of this
+
+	// const perOne = (friend, callfrnd) => {
+	// 	console.log(`I am busy right now i am talking to ${friend}. i will call you back.`);
+	// 	callfrnd();
+	// }
+
+	// const perTwo = () => {
+	// 	console.log(`Hey what's up i call you back`);
+	// }
+
+	// perOne("Om",perTwo);
+	// perTwo is a callback function
+// --------------------------------------------------------
+
+// Promises
+	// stages: 
+	// 1.pending,
+	// 2.fullfiel ,reject
+	// 3.reject
+	
+// let p = new Promise((resolve,reject)=>{
+// 	let a = 1+1;
+// 	if(a==2){
+// 		resolve('Success')
+// 	}else{
+// 		reject('Failed')
+// 	}
+// })
+
+// p.then((message)=>{
+// 	console.log('this is in the then '+message)
+// }).catch((message)=>{
+// 	console.log('this is in the catch '+message)
+// })
+
+
+
+//End of the course
+
+</script>
+
+</body>
+</html>

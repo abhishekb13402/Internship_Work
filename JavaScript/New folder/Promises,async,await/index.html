@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Promises, async, await</title>
+</head>
+<body>
+<script type="text/javascript">
+	// callbacks
+	// const perOne = (friend, callfrnd) => {
+	// 	console.log(`I am busy right now i am talking to ${friend}. i will call you back.`);
+	// 	callfrnd();
+	// }
+
+	// const perTwo = () => {
+	// 	console.log(`Hey what's up i call you back`);
+	// }
+
+	// perOne("Om",perTwo);
+	// perTwo is a callback function
+
+// -------------------------------------------------	
+	// Promises
+	// let p = new Promise((resolve,reject)=>{
+	// 	let a = 1+1;
+	// 	if(a==2){
+	// 		// resolve('Success')
+	// 		setTimeout(() => resolve("done!"), 3000);
+	// 	}else{
+	// 		reject('Failed')
+	// 	}
+	// })
+
+	// p.then((message)=>{
+	// 	console.log('this is in the then '+message)
+	// }).catch((message)=>{
+	// 	console.log('this is in the catch '+message)
+	// })
+// Promises chaining
+	// let promise = new Promise(function(resolve,reject){
+	// 	setTimeout(()=>resolve(1),1000);
+
+	// });
+	// promise.then(function(result){
+	// 	alert(result);
+	// 	return result*2;
+	// });
+	// promise.then(function(result){
+	// 	alert(result);
+	// 	return result*2;
+	// });
+	// promise.then(function(result){
+	// 	alert(result);
+	// 	return result*2;
+	// });
+// op: 1 1 1 
+
+
+
+</script>
+</body>
+</html>
