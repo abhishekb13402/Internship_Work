@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fetch data from an API</title>
+
+<script type="text/javascript">
+
+	fetchData();
+
+	async function fetchData(){
+		try{
+			const response = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+			if (!response.ok) {
+				throw new Error("Could not fetch resource");
+			}
+			const data = await response.json();
+			console.log(data);
+
+		}catch(error){
+			console.error(error);
+		}
+	}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

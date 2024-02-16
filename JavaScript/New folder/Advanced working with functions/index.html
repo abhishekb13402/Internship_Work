@@ -106,29 +106,50 @@
 
 // sayHi(); // Hi, Pete
 
-function makeCounter() {
-  let count = 0;
+// function makeCounter() {
+//   let count = 0;
 
-  return function() {
-    return count++;
-  };
-}
+//   return function() {
+//     return count++;
+//   };
+// }
 
-let counter = makeCounter();
-let counter2 = makeCounter();
+// let counter = makeCounter();
+// let counter2 = makeCounter();
 
-alert( counter() ); // 0
-alert( counter() ); // 1
+// alert( counter() ); // 0
+// alert( counter() ); // 1
 
-alert( counter2() ); // 0
-alert( counter2() ); // 1
+// alert( counter2() ); // 0
+// alert( counter2() ); // 1
 
+// ------------------------------------------------------------
+// 16-02-24
 
+// Scheduling: setTimeout and setInterval
 
+// setTimeout(()=>{
+// 	console.log("Hello");
+// },3000);
 
+// setTimeout(greeting,3000,"Hii");
+// function greeting(x)
+// {
+// 	console.log(x);
+// }
 
+// setInterval(()=>{
+// 	console.log("Hello");
+// },3000);
 
-
+// let counter = 0;
+// const countInterval = setInterval(count,1000);
+// function count(){
+// 	console.log(counter++);
+// 	if (counter>5) {
+// 		clearInterval(countInterval);
+// 	}
+// }
 
 
 
