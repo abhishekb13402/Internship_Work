@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>DOM</title>
+
+        <style>
+            .box{
+                height: 100px;
+                width: 100px;
+                border: 1px solid black;
+                margin: 5px;
+                text-align: center;
+                background-color: cornflowerblue;
+            }
+        </style>
+    </head>    
+<body>
+    <h1 id="temp">Temp Text</h1>
+    <p id="demo"></p>
+
+    <p id="date"></p>
+
+    <input type="button" value="Color" onclick="document.getElementById('temp').style.color='red' ">
+
+    <div class="box">First div</div>
+    <div class="box">Second div</div>
+    <div class="box">Third div</div>
+
+<script>
+    const text= document.getElementById("date").style.color="blue";
+document.getElementById("demo").innerHTML = "Hello World!"+text.innerHTML;
+
+document.getElementById("date").innerHTML="Date = "+Date();
+
+document.write(Date());
+
+let divs = document.querySelectorAll(".box");
+let idx=1;
+for(div of divs){
+    div.innerText=`new value ${idx}`;
+    idx++;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Object properties configuration</title>
+</head>
+<body>
+<script type="text/javascript">
+
+// writable	
+	// let user = {
+	// 	name:"Abhi"
+	// };
+	// Object.defineProperty(user,"name",{
+	// 	writable: false
+	// });
+	// user.name="Bhatt";//error
+
+// enumerable
+	// let user ={
+	// 	name:"Abhi",
+	// 	toString(){
+	// 		return this.name;
+	// 	}
+	// };
+	// Object.defineProperty(user,"toString",{
+	// 	enumerable:false
+	// });
+	// for(let key in user)alert(key);//name
+
+// configurable
+
+	// let user={
+	// 	name:"Abhi"
+	// };
+	// Object.defineProperty(user,"name",{
+	// 	configurable:false
+	// });
+
+	// user.name="Bhatt";//works
+	// delete user.name;//error
+
+// Property getters and setters
+
+let user ={
+	name:"Abhi",
+	surname:"Bhatt",
+	get fullname(){
+		return `${this.name} ${this.surname}`;
+	},
+	set(value){
+		[this.name,this.surname]=value.split(" ");
+	}
+};
+alert(user.fullname);
+for(let key in user) alert(key);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

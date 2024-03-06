@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        span{
+            color: red;
+            font-weight: bold;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="dataForm">
+        <br><span id="Error" class="error"></span><br>
+
+        <input type="text" id="firstName" placeholder="First Name">
+        <br><span id="firstNameError" class="error"></span><br>
+
+        <br><input type="text" id="lastName" placeholder="Last Name">
+        <br><span id="lastNameError" class="error"></span><br>
+
+        <br><button type="button" onclick="addData()">Add Data</button>
+        <button type="button" onclick="loadDataFromLocalStorage()">Load Data</button>
+    </form>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+
+        function addData() {
+            
+            if (validateForm()) {
+                var firstName = document.getElementById("firstName").value;
+                var lastName = document.getElementById("lastName").value;
+                var error = document.getElementById("Error");
+
+                if (!isDuplicate(firstName, lastName)) {
+                    var table = document.getElementById("dataTable");
+                    var newRow = table.insertRow(table.rows.length);
+                    var cell1 = newRow.insertCell(0);
+                    var cell2 = newRow.insertCell(1);
+                    var cell3 = newRow.insertCell(2);
+
+                    cell1.innerHTML = firstName;
+                    cell2.innerHTML = lastName;
+                    cell3.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+
+                    saveDataToLocalStorage();
+                    clearForm();
+                } else {
+                    error.innerHTML="Duplicate values for first name and last name are not allowed.";
+                }
+            }
+        }
+
+        
+        function validateForm() {
+            var isValid = true;
+
+            // Validate First Name
+            var firstName = document.getElementById("firstName").value;
+            var firstNameError = document.getElementById("firstNameError");
+            if (firstName.trim() === "") {
+                firstNameError.innerHTML = "First Name is required";
+                isValid = false;
+            } else {
+                firstNameError.innerHTML = "";
+            }
+
+            // Validate Last Name
+            var lastName = document.getElementById("lastName").value;
+            var lastNameError = document.getElementById("lastNameError");
+            if (lastName.trim() === "") {
+                lastNameError.innerHTML = "Last Name is required";
+                isValid = false;
+            } else {
+                lastNameError.innerHTML = "";
+            }
+
+            // Validate ...
+           
+
+            return isValid;
+        }
+
+        function clearForm() {
+            document.getElementById("firstName").value = "";
+            document.getElementById("lastName").value = "";
+
+            
+        }
+
+        function isDuplicate(firstName, lastName) {
+            var table = document.getElementById("dataTable");
+            for (var i = 0; i < table.rows.length; i++) {
+                var existingFirstName = table.rows[i].cells[0].innerHTML;
+                var existingLastName = table.rows[i].cells[1].innerHTML;
+                if (existingFirstName === firstName && existingLastName === lastName) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            var table = document.getElementById("dataTable");
+
+            var rowIndex = row.rowIndex;
+
+            table.deleteRow(rowIndex);
+
+            removeFromLocalStorage(rowIndex - 1);
+
+
+        }
+
+        function removeFromLocalStorage(index) {
+            var storedData = JSON.parse(localStorage.getItem("formData"));
+
+            if (storedData && storedData.length > index) {
+                storedData.splice(index, 1);
+                localStorage.setItem("formData", JSON.stringify(storedData));
+            }
+        }
+
+
+        function saveDataToLocalStorage() {
+            const fname = document.getElementById("firstName").value;
+            const lname = document.getElementById("lastName").value;
+
+            const formData = {
+                fname: fname,
+                lname: lname
+            };
+
+            const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
+
+            storedFormData.push(formData);
+
+            localStorage.setItem('formData', JSON.stringify(storedFormData));
+        }
+
+        function loadDataFromLocalStorage() {
+            var table = document.getElementById("dataTable");
+            var storedData = localStorage.getItem("formData");
+            var error = document.getElementById("Error");
+
+            if (storedData) {
+                var data = JSON.parse(storedData);
+
+                // Check if data has already been loaded
+                if (table.rows.length > 0) {
+                    // Check if the number of rows in the table matches the data in local storage
+                    if (table.rows.length !== data.length) {
+                        // Mismatch, reload the data
+                        reloadTableWithData(data);
+                    } else {
+                        error.innerHTML="Data is already loaded.";
+
+                    }
+                } else {
+                    // Table is empty, load the data
+                    reloadTableWithData(data);
+                }
+            } else {
+                error.innerHTML="No data found in local storage.";
+                
+            }
+        }
+
+        function reloadTableWithData(data) {
+            var table = document.getElementById("dataTable");
+
+            // Load new data
+            for (var i = 0; i < data.length; i++) {
+                var newRow = table.insertRow(table.rows.length);
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+
+                cell1.innerHTML = data[i].fname;
+                cell2.innerHTML = data[i].lname;
+                cell3.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
