@@ -78,7 +78,7 @@ namespace DatabaseDemo
             {
                 //Data Source=LAPTOP-2AMVTRQA;Initial Catalog=DatabaseDemo;Integrated Security=True;Trust Server Certificate=True
                 //connetionString = @"Data Source=WIN-50GP30FGO75;Initial Catalog=Demodb;User ID=sa;Password=demol23";
-                connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=DatabaseDemo;Integrated Security=True;";
+                connetionString = @"Data Source=HP;Initial Catalog=DatabaseDemo;Integrated Security=True;";
                 cnn = new SqlConnection(connetionString);
                 cnn.Open();
                 MessageBox.Show("Connection Open  !");

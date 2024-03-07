@@ -15,7 +15,6 @@ namespace SOLIDPrinciples
            return 10;
         }
     }
-
     public class EmployeeFinancesforFTE : EmployeeFinances
     {
         public override double CalculatePay(Employee emp)
@@ -23,7 +22,6 @@ namespace SOLIDPrinciples
             return emp.TotalHourseWorked * 10;
         }
     }
-
     public class EmployeeFinancesforPTE : EmployeeFinances
     {
         public override double CalculatePay(Employee emp)
@@ -31,7 +29,6 @@ namespace SOLIDPrinciples
             return emp.TotalHourseWorked * 5;
         }
     }
-
     public class EmployeeFinancesforContractor : EmployeeFinances
     {
         public override double CalculatePay(Employee emp)
