@@ -1,5 +1,6 @@
 import React from 'react'
-import "./App.css"
+import Navbar from './components/Navbar'
+import Home from './components/Home'
 import {useState} from 'react'
 // import Counter_separately from './components/counters/Counter_separately'
 
@@ -7,9 +8,21 @@ const App = () => {
   return (
     <div>
 
+      <Navbar/>
+      <div className="content">
+        <Home/>
+      </div>
+      <hr/>
+      
       <h1>Counters that update separately</h1>
       <MyButton/>
       <MyButton/>
+      <hr/>
+
+
+      <hr/>
+
+      
 
       {/* <h2>React</h2>
       <table>
