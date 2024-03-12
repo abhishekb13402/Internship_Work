@@ -1,3 +1,4 @@
+
 //Dashboard code
 
 function displayTable() {
@@ -128,10 +129,11 @@ function reloadTableWithData(data) {
         var cell3 = newRow.insertCell(2);
         var cell4 = newRow.insertCell(3);
 
-        cell1.innerHTML = data[i].prodId;
-        cell2.innerHTML = data[i].prodName;
-        cell3.innerHTML = data[i].prodQuantity;
+        cell1.innerHTML = data[i].sprodId;
+        cell2.innerHTML = data[i].sprodName;
+        cell3.innerHTML = data[i].sprodQuantity;
         cell4.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
     }
 }
 
+loadDataFromLocalStorage();
