@@ -3,3 +3,28 @@ span{
     color: red;
     font-weight: bold;
 }
+
+#productTable{
+    display: none;
+}
+
+/* dashboard style */
+
+/* #productDataTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#productDataTable,
+th,
+td {
+    border: 1px solid black;
+}
+
+#productDataTable,
+th,
+td {
+    padding: 10px;
+    text-align: left;
+} */
