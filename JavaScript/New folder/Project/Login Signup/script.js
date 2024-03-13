@@ -14,32 +14,60 @@ function login() {
 
         var user = userDataList.find(user => user.uname === username && user.password === password);
         if (user) {
-            //alert("Login successful!");
-            var isuserAdmin = user.role === 'Admin';
-            alert(isuserAdmin);
-            if (isuserAdmin) {
-                alert("admin..")
-
-                // addbtn.style.display = "block";
-
-                //console.log("HERE", document.getElementById("addbtn"))
-                window.location.href = "Dashboard.html";
-            } else {
-                alert("normal user..")
-                // addbtn.style.display = "none";
+           
 
                 window.location.href = "Dashboard.html";
-            }
+            
 
         } else {
-            //alert("Invalid username or password");
             loginerr.innerHTML = "Invalid username or password";
             clearFields();
         }
     }
 
-
+              
+localStorage.setItem("current-user", username)
 }
+
+// function login() {
+//     var username = document.getElementById("username").value;
+//     var password = document.getElementById("userpassword").value;
+//     var loginerr = document.getElementById("loginerr");
+//     var addbtn = document.getElementById("addbtn");
+
+//     console.log(addbtn); 
+//     if (validateLoginForm()) {
+//         var existingData = localStorage.getItem("user_data");
+//         var userDataList = existingData ? JSON.parse(existingData) : [];
+
+//         var user = userDataList.find(user => user.uname === username && user.password === password);
+//         if (user) {
+//             //alert("Login successful!");
+//             var isuserAdmin = user.role === 'Admin';
+//             alert(isuserAdmin);
+//             if (isuserAdmin) {
+//                 alert("admin..")
+
+//                 // addbtn.style.display = "block";
+
+//                 //console.log("HERE", document.getElementById("addbtn"))
+//                 window.location.href = "Dashboard.html";
+//             } else {
+//                 alert("normal user..")
+//                 // addbtn.style.display = "none";
+
+//                 window.location.href = "Dashboard.html";
+//             }
+
+//         } else {
+//             //alert("Invalid username or password");
+//             loginerr.innerHTML = "Invalid username or password";
+//             clearFields();
+//         }
+//     }
+
+
+// }
 
 function validateLoginForm() {
     var isValid = true;

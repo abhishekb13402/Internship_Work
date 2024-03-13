@@ -137,3 +137,26 @@ function reloadTableWithData(data) {
 }
 
 loadDataFromLocalStorage();
+
+let addbtn = document.getElementById("addbtn")
+let hideBtn = false;
+
+let data = localStorage.getItem("user_data");
+let currnetUser = localStorage.getItem("current-user");
+
+if(data) {
+    let dataArray = JSON.parse(data)
+    
+    dataArray.map(user => {
+        console.log(user, currnetUser)
+        if(user.uname === currnetUser && user.role === "Admin"){
+            hideBtn = true;
+        }
+    })
+}
+if(hideBtn){
+    addbtn.style.display = "block"
+}else{
+    addbtn.style.display = "none"
+}
+console.log(hideBtn)
