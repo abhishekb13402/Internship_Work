@@ -1,27 +1,44 @@
 <html>
-    <head><title>Index</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-<body>
-<h2>Login</h2>
-        <table>
-            <tr>
-                <td>User Name</td>
-                <td> <input type="text" id="username"> </td>
-            </tr>
-            <tr>
-                <td>User Password</td>
-                <td> <input type="password" id="userpassword"> </td>
-            </tr>
-            <tr>
-                <td> <button onclick="window.location.href='signup.html';">Sign Up</button> </td>
-        
-                <td> <button onclick="login()">Login</button> </td>
-            </tr>
-            
-            
-        </table>
 
-<script src="script.js"></script>
+<head>
+    <title>Index</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Login</h2>
+    <table>
+        <tr>
+            <td><span id="loginerr"></span></td>
+        </tr>
+
+        <tr>
+            <td><span id="usernameerr"></span></td>
+        </tr>
+
+        <tr>
+            <td>User Name</td>
+            <td> <input type="text" id="username"> </td>
+        </tr>
+        <tr>
+            <td><span id="userpassworderr"></span></td>
+        </tr>
+
+        <tr>
+            <td>User Password</td>
+            <td> <input type="password" id="userpassword"> </td>
+        </tr>
+        <tr>
+            <td> <button onclick="window.location.href='signup.html';">Sign Up</button> </td>
+
+            <td> <button onclick="login()">Login</button> </td>
+            <!-- <td> <button id="loginbtn">Login</button> </td> -->
+        </tr>
+
+
+    </table>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
