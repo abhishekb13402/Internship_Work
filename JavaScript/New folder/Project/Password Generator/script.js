@@ -26,5 +26,4 @@ copyButton.onclick=function copyPwd(){
         passwordInput.value="";
         });
     }
-
 }
