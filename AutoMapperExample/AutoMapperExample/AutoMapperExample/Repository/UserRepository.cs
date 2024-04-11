@@ -2,6 +2,7 @@
 using AutoMapperExample.DBContext;
 using AutoMapperExample.Dto;
 using AutoMapperExample.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutoMapperExample.Repository
 {
@@ -10,42 +11,47 @@ namespace AutoMapperExample.Repository
         private readonly IMapper _mapper;
         private readonly AppConfigDBContext appConfigDBContext;
         private readonly IUser _user;
+        private readonly UserDto _userDto;
 
-        public UserRepository(IUser user, AppConfigDBContext appConfigDBContext,IUser _user)
+        public UserRepository(IUser user, AppConfigDBContext appConfigDBContext, UserDto userDto)
         {
             _user = user;
             this.appConfigDBContext = appConfigDBContext;
-            this._user = _user;
+            _userDto = userDto;
         }
 
         public Task<UserDto> AddUser(UserDto userDto)
         {
-            return _user.AddUser(userDto);
+            throw new NotImplementedException();
         }
 
         public Task<UserDto> DeleteUser(UserDto userDto)
         {
-            return _user.DeleteUser(userDto);
+            throw new NotImplementedException();
         }
 
-        public Task<UserDto> GetAllUser(UserDto userDto)
+        public async Task<UserDto> GetAllUser(UserDto userDto)
         {
-            return _user.GetAllUser(userDto);
+            //var users = await appConfigDBContext.users.ToListAsync();
+            //var usersDto = _mapper.Map<List<UserDto>>(users);
+            //return usersDto.ToList();
+            throw new NotImplementedException();
+
         }
 
         public Task<UserDto> GetUserByEmail(UserDto userDto)
         {
-            return _user.GetUserByEmail(userDto);
+            throw new NotImplementedException();
         }
 
         public Task<UserDto> GetUserById(UserDto userDto)
         {
-            return _user.GetUserById(userDto);
+            throw new NotImplementedException();
         }
 
         public Task<UserDto> UpdateUser(UserDto userDto)
         {
-            return _user.UpdateUser(userDto);
+            throw new NotImplementedException();
         }
     }
 }
