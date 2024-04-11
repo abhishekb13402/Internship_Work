@@ -1,16 +1,19 @@
 ﻿
 using AutoMapper;
+using AutoMapperExample.Dto;
+using AutoMapperExample.Models;
 
-internal class MappingConfiguration
+public class MappingConfiguration
 {
-    internal static object RegisterMaps()
+    public static MapperConfiguration RegisterMaps()
     {
         var mappingConfig = new MapperConfiguration(configurationExpression =>
         {
             configurationExpression.CreateMap<UserDto, User>().ReverseMap();
-           
+
         });
 
         return mappingConfig;
     }
+
 }

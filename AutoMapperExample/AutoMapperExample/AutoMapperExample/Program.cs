@@ -1,13 +1,14 @@
 using AutoMapper;
+using AutoMapperExample.DBContext;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Add services to the container.
 IMapper mapper = MappingConfiguration.RegisterMaps().CreateMapper();
-builder.Services.AddDbContext<AppConfigDbContext>(options =>
+
+builder.Services.AddDbContext<AppConfigDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("dbcs")));
 
 builder.Services.AddControllers();
