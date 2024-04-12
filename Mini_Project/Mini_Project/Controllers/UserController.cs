@@ -6,6 +6,7 @@ using Mini_Project.Models;
 using Mini_Project.Dto;
 using Mini_Project.Models.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Mini_Project.Controllers
 {
@@ -35,6 +36,7 @@ namespace Mini_Project.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<UserDto>> AddUser(User user)
         {
             try
