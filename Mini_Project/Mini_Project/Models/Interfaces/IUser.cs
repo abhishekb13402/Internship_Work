@@ -8,8 +8,8 @@ namespace Mini_Project.Models.Interfaces
     {
         Task<List<UserDto>> GetAllUsers();
         Task AddUser(User user);
-        Task UpdateUser();
-        Task DeleteUser();
+        Task<object> UpdateUser(UserDto userDto);
+        Task<object> DeleteUser(int id);
 
     }
 }

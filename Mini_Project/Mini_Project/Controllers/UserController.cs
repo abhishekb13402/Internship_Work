@@ -36,7 +36,7 @@ namespace Mini_Project.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<UserDto>> AddUser(User user)
         {
             try
@@ -47,6 +47,36 @@ namespace Mini_Project.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, "Error occurred while adding a user: " + ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<TodoTaskDto>> DeleteUser(int id)
+        {
+            try
+            {
+                await _userRepository.DeleteUser(id);
+                return Ok(id);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error occurred while deleting a user: " + ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<UserDto>> UpdateUser(UserDto userDto)
+        {
+            try
+            {
+                await _userRepository.UpdateUser(userDto);
+                return Ok(userDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error occurred while updating a user: " + ex.Message);
             }
         }
 

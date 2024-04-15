@@ -4,9 +4,9 @@ namespace Mini_Project.Models.Interfaces
 {
     public interface ITodoTask
     {
-        Task<List<UserDto>> GetAllTasks();
-        Task AddTask(User user);
-        Task Updatetask();
-        Task DeleteTask();
+        Task<List<TodoTaskDto>> GetAllTasks();
+        Task AddTask(TodoTask todoTask);
+        Task<object> Updatetask(TodoTaskDto todoTaskDto);
+        Task<object> DeleteTask(int id);
     }
 }

@@ -20,7 +20,7 @@ namespace Mini_Project.Controllers
         }
 
         [HttpPost("login")]
-        public string Login([FromBody] Mini_Project.Models.LoginRequest obj) // Use the correct LoginRequest class
+        public string Login([FromBody] Mini_Project.Models.LoginRequest obj)
         {
             var token = _auth.Login(obj);
             return token;

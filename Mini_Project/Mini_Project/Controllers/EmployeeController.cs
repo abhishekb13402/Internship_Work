@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Mini_Project.Models.Interfaces;
 using Mini_Project.Models;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Mini_Project.Controllers
 {
     [Route("api/[controller]")]
@@ -17,7 +15,6 @@ namespace Mini_Project.Controllers
             _employeeService = employeeService;
         }
 
-        // GET: api/<EmployeesController>
         [HttpGet]
         [Authorize(Roles = "User")]
         public List<Employee> GetEmployees()
@@ -25,9 +22,6 @@ namespace Mini_Project.Controllers
             return _employeeService.GetEmployeeDetails();
         }
 
-
-
-        // POST api/<EmployeesController>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public Employee AddEmployee([FromBody] Employee emp)

@@ -33,9 +33,27 @@ namespace Mini_Project.Repository
             }
         }
 
-        public async Task DeleteUser()
+        public async Task<object> DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var DeleteUserChoice = _appConfigDBContext.Users.FindAsync(id);
+                if (DeleteUserChoice == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    _appConfigDBContext.Users.Remove(await DeleteUserChoice);
+                    await _appConfigDBContext.SaveChangesAsync();
+                    return true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while deleting the task: " + ex.Message);
+            }
         }
 
         public async Task<List<UserDto>> GetAllUsers() // Corrected return type
@@ -52,9 +70,27 @@ namespace Mini_Project.Repository
             }
         }
 
-        public async Task UpdateUser()
+        public async Task<object> UpdateUser(UserDto userDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var existingUser = await _appConfigDBContext.Users.FindAsync(userDto.UserId);
+                if (existingUser== null)
+                {
+                    return false;
+                }
+                else
+                {
+                    _mapper.Map(userDto, existingUser);
+                    await _appConfigDBContext.SaveChangesAsync();
+                    var updateduserDto = _mapper.Map<UserDto>(existingUser);
+                    return updateduserDto;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while updating the task: " + ex.Message);
+            }
         }
     }
 }
